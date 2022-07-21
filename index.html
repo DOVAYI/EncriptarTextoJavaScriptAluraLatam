@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='style.css' />
+
+    <title>Encriptador de Texto</title>
+</head>
+
+<body>
+    <div class="principal">
+        <div class="fila">
+            <div class="c6">
+                <textarea name="" id="parrafo" cols="60" rows="25"></textarea>
+            </div>
+            <div class=" c4">
+                <textarea name="" id="parrafo2" cols="50" rows="25"></textarea>
+            </div>
+        </div>
+        <div class="fila2">
+            <div class="c4">
+                <button onclick=capturarInfo()>Encriptador</button>
+            </div>
+            <div class="c2">
+                <button onclick=desEncriptar()>Desencriptador</button>
+            </div>
+            <div class="c4">
+                <button style="width: 100%;">Copiar</button>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    <script>
+        var texto;
+        function capturarInfo() {
+            var x = document.querySelector("#parrafo").value;
+            texto=x;
+            var vector = x.split("");
+            var valorA;
+            var valorE;
+            var valorI;
+            var valorO;
+            var valorU;
+            var aux;
+            var aux2;
+            for (var i = 0; i < vector.length; i++) {
+                if (vector[i] === "a") {
+                    valorA = Math.floor((Math.random() * (100 - 1 + 1)) + 1);
+                    vector[i] = String("-" + valorA);
+                } else if (vector[i] === "e") {
+                    valorE = Math.floor((Math.random() * (1000 - 200 + 1)) + 200);
+                    vector[i] = String("-" + valorE);
+                } else if (vector[i] === "i") {
+                    valorI = Math.floor((Math.random() * (10000 - 2000 + 1)) + 2000);
+                    vector[i] = String("-" + valorI);
+                } else if (vector[i] === "o") {
+                    valorO = Math.floor((Math.random() * (100000 - 20000 + 1)) + 20000);
+                    vector[i] = String("-" + valorO);
+                } else if (vector[i] === "u") {
+                    valorU = Math.floor((Math.random() * (1000000 - 200000 + 1)) + 200000);
+                    vector[i] = String("-" + valorU);
+                }
+            }
+            aux = vector;
+            aux2 = aux.join('');
+            document.querySelector("#parrafo2").value = aux2;
+            document.querySelector("#parrafo").value = "";
+        }
+
+        function desEncriptar() {
+
+
+            document.querySelector("#parrafo").value = texto;
+            document.querySelector("#parrafo2").value = "";
+
+        }
+
+       
+
+
+    </script>
+</body>
+
+</html>
